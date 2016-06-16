@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->tinyInteger('status')->unisigned();
             $table->integer('views')->unisigned();
             $table->integer('user_id')->unisgned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
