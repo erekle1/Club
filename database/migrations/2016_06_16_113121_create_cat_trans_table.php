@@ -16,7 +16,7 @@ class CreateCatTransTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('desc')->nullable();
-            $table->integer('locale_id')->unisgned();
+            $table->integer('locale_id')->unsigned();
             $table->integer('cat_id')->unsigned();
             $table->foreign('locale_id')->references('id')->on('locales')->onDelete('cascade');
             $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade');

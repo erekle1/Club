@@ -17,7 +17,7 @@ class CreatePostTransTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('slug')->unique();
-            $table->integer('locale_id')->unisgned();
+            $table->integer('locale_id')->unsigned();
             $table->integer('post_id')->unsigned();
             $table->foreign('locale_id')->references('id')->on('locales')->onDelete('cascade');
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
