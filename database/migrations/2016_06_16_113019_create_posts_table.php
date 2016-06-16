@@ -14,9 +14,9 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->tinyInteger('status')->unisigned();
-            $table->integer('views')->unisigned();
-            $table->integer('user_id')->unisigned();
+            $table->tinyInteger('status')->unsigned();
+            $table->integer('views')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
