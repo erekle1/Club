@@ -14,7 +14,17 @@ class CreatePostTransTable extends Migration
     {
         Schema::create('post_trans', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title');
+            $table->text('content');
+            $table->string('slug')->unique();
+            $table->integer('locale_id')->unisgned();
+            $table->integer('post_id')->unsigned();
+            $table->foreign('locale_id')->references('id')->on('locales')->onDelete('cascade');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+            $table->unique(['locale_id','post_id']);
             $table->timestamps();
+
+
         });
     }
 

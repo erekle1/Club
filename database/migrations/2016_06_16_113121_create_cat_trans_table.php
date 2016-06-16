@@ -14,7 +14,13 @@ class CreateCatTransTable extends Migration
     {
         Schema::create('cat_trans', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('title');
+            $table->text('desc')->nullable();
+            $table->integer('locale_id')->unisgned();
+            $table->integer('cat_id')->unsigned();
+            $table->foreign('locale_id')->references('id')->on('locales')->onDelete('cascade');
+            $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->unique(['locale_id','cat_id']);
         });
     }
 
