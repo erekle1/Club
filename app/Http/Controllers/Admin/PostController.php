@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -16,7 +17,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $post = Post::first();
+        
     }
 
     /**
