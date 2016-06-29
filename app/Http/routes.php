@@ -1,5 +1,5 @@
-<?php
-
+<?php 
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $user=User::with('posts')->find(1);
+    dd($user->Posts);
 });
 
 Route::auth();
