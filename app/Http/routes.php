@@ -12,8 +12,7 @@ use App\User;
 */
 
 Route::get('/', function () {
-    $user=User::with('posts')->find(1);
-    dd($user->Posts);
+    
 });
 
 Route::auth();
@@ -22,14 +21,9 @@ Route::get('/home', 'HomeController@index');
 
 Route::group( ['middleware' => ['auth'],'prefix'=>'admin'], function () {
 
-
-    Route::resource('post','Admin/PostController');// all admin/post request is  Handling by admin/PostController
+    
 
 
 });
 
 
-
-Route::group([],function(){
-
-});
