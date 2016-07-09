@@ -17,11 +17,13 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+
 
 Route::group( ['middleware' => ['auth'],'prefix'=>'admin'], function () {
+    Route::get('/', 'HomeController@index');
+    Route::resource('category','Admin\CategoryController');
     Route::get('product',function (){
-        
+
     });
 });
 
