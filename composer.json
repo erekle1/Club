@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "laracasts/testdummy": "2.3.2",
         "zizaco/entrust": "5.2.x-dev",
-        "dimsav/laravel-translatable": "^5.6"
+        "dimsav/laravel-translatable": "^5.6",
+        "doctrine/dbal": "^2.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

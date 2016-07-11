@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Locale;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,6 +11,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+
+        //Languages start
+
+        $locales = ['ინგლისური'=>'en','რუსული'=>'ru','ქართული'=>'ge'];
+
+        foreach($locales as $title => $code)
+        {
+            Locale::create(['title'=>$title,'code'=>$code]);
+        }
+
+
+
+        //Languages end
     }
 }

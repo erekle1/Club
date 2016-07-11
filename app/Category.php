@@ -15,4 +15,6 @@ class Category extends Model
     public function firstTrans(){
         return $this->catTrans()->first();
     }
+
+
 }
