@@ -1,28 +1,17 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Locale;
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
+        Eloquent::unguard();
 
-        //Languages start
-
-        $locales = ['ინგლისური'=>'en','რუსული'=>'ru','ქართული'=>'ge'];
-
-        foreach($locales as $title => $code)
-        {
-            Locale::create(['title'=>$title,'code'=>$code]);
-        }
-
-
-
-        //Languages end
+        $this->call('LanguagesSeeder');
+        $this->call('RolesSeeder');
+        $this->call('PermissionsSeeder');
+        $this->call('PermissionRoleSeeder');
+        $this->call('UsersSeeder');
+        $this->call('RoleUserSeeder');
     }
 }
