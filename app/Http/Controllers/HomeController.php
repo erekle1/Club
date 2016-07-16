@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\File;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        File::first();
+        DB::table('files')->where('id',1);
         return view('admin.index');
     }
 }

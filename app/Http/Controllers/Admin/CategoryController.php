@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\CatTrans;
 use App\Locale;
 use Illuminate\Http\Request;
 use App\Category;
@@ -17,7 +18,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+
+        $categories = Category::orderBy('create_at','decs')->paginate(9);
+
+        return view('admin.category.index',compact('categories'));
     }
 
     /**
@@ -64,7 +68,10 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        $category = Category::all();
+
+        return view('admin.category.edit');
     }
 
     /**

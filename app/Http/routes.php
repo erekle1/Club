@@ -18,6 +18,12 @@ Route::get('/', function () {
 Route::auth();
 
 
+Route::get('/', 'HomeController@index');
+Route::resource('category','Admin\CategoryController');
+Route::get('product',function (){
+
+});
+
 
 Route::group( ['middleware' => ['auth'],'prefix'=>'admin'], function () {
     Route::get('/', 'HomeController@index');
