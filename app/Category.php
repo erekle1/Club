@@ -8,6 +8,9 @@ class Category extends Model
 {
     use \Dimsav\Translatable\Translatable;
     public $translatedAttributes = ['title','desc'];
+
+    public $timestamps = false;
+    
     
     public function catTrans(){
         return $this->hasMany('App\CatTrans','cat_id');

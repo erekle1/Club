@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Permission extends Model
 {
     protected $fillable = ['name','display_name','description'];
-
+    public $timestamps = false;
+    
     public function roles(){
         $this->belongsToMany('App\Permission','permission_role','permission_id');
     }
