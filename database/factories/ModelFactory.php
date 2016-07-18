@@ -19,3 +19,19 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+
+
+$factory->define(App\Category::class, function (Faker\Generator $faker) {
+    return [
+        'parent' => null
+    ];
+});
+
+$factory->define(App\CategoryTrans::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->colorName,
+        'desc'  => $faker->text,
+        'locale_id'=>rand(1,3),
+    ];
+});

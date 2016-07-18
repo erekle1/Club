@@ -8,13 +8,15 @@ class Category extends Model
 {
     use \Dimsav\Translatable\Translatable;
     public $translatedAttributes = ['title','desc'];
-
+    protected $fillable =['parent'];
     public $timestamps = false;
     
     
     public function catTrans(){
-        return $this->hasMany('App\CatTrans','cat_id');
+        return $this->hasMany('App\CategoryTrans','cat_id');
     }
+    
+    
     public function firstTrans(){
         return $this->catTrans()->first();
     }
