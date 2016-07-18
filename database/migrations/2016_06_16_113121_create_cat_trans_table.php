@@ -17,10 +17,10 @@ class CreateCatTransTable extends Migration
             $table->string('title');
             $table->text('desc')->nullable();
             $table->integer('locale_id')->unsigned();
-            $table->integer('cat_id')->unsigned();
+            $table->integer('category_id')->unsigned();
             $table->foreign('locale_id')->references('id')->on('locales')->onDelete('cascade');
-            $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->unique(['locale_id','cat_id']);
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->unique(['locale_id','category_id']);
         });
     }
 

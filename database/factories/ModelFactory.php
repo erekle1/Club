@@ -29,9 +29,12 @@ $factory->define(App\Category::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\CategoryTrans::class, function (Faker\Generator $faker) {
+
     return [
         'title' => $faker->colorName,
         'desc'  => $faker->text,
-        'locale_id'=>rand(1,3),
+        'locale_id'=>mt_rand(1,3),
     ];
+
+
 });
