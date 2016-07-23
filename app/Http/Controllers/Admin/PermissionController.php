@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\CatTrans;
-use App\Locale;
+use App\Permission;
 use Illuminate\Http\Request;
-use App\Category;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests;
 
-class CategoryController extends Controller
+class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,14 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-
-        $categories = Category::orderBy('id','desc')->paginate(1);
-        foreach($categories as $category)
-        {//dd($category);
-
-        }
-        //dd($categories);
-        return view('admin.category.index',compact('categories'));
+        $pers = Permission::all();
+        return view('admin.permission.index',compact('pers'));
     }
 
     /**
@@ -35,11 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        
-        $locales = Locale::all();
-
-        return view('admin.category.create',compact('locales'))->with(compact('categories'));
+        //
     }
 
     /**
@@ -72,10 +60,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        $category = Category::all();
-
-        return view('admin.category.edit');
+        $per = Permission::find($id);
+        return view('admin.permission.edit',compact('per'));
     }
 
     /**
@@ -87,7 +73,17 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //dd($request->all());
+
+
+        $per = Permission::find($id);
+        $per->update($request->all());
+
+//        $per->name = $request->name;
+//        $per->display_name = $request->display_name;
+//        $per->description = $request->description;
+//        $per->save();
+        return redirect()->back();
     }
 
     /**

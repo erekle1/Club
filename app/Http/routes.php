@@ -19,7 +19,9 @@ Route::auth();
 
 
 Route::get('/', 'HomeController@index');
+
 Route::resource('category','Admin\CategoryController');
+Route::resource('permission','Admin\PermissionController');
 Route::get('product',function (){
 
 });

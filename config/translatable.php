@@ -11,9 +11,9 @@ return [
     |
     */
     'locales' => [
-        'en',
-        'fr',
-        'es' => [
+        '3',
+        '4',
+        '5' => [
             'MX', // mexican spanish
             'CO', // colombian spanish
         ],
@@ -89,7 +89,7 @@ return [
     | translation model.
     |
     */
-    'locale_key' => 'locale',
+    'locale_key' => 'locale_id',
 
     /*
     |--------------------------------------------------------------------------

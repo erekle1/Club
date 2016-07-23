@@ -43,13 +43,13 @@
                         <tbody>
                         @foreach($categories as $category)
                         <tr>
-                            <td class="text-center">{{$category->id}}}</td>
+                            <td class="text-center">{{$category->id}}</td>
                             <td>{{$category->title}}</td>
                             <td class="hidden-xs">
                                 {{$category->desc}}
                             </td>
                             <td>
-                                {{$category->parent->title}}
+                                {{--{{$category->parent->title}}--}}
                             </td>
                             <td class="text-center">
                                 <div class="btn-group">
@@ -59,6 +59,7 @@
                             </td>
                         </tr>
                         @endforeach
+
                         <tr>
                             <td class="text-center">2</td>
                             <td>Jack Greene</td>
@@ -128,6 +129,7 @@
                     </table>
                 </div>
             </div>
+        {!! $categories->render() !!}
             <!-- END Default Table -->
         </div>
         <div class="col-lg-6">
